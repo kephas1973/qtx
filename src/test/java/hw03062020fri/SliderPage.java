@@ -8,11 +8,29 @@ import org.openqa.selenium.interactions.Actions;
 //import org.openqa.selenium.support.FindBy;
 
 public class SliderPage extends SuperPageObject {
+	
 	public SliderPage(WebDriver driver, String baseUrl) {
 		
 		super(driver, baseUrl);
 	}
-
+	
+	By sliderContainerLocator = By.cssSelector("div.sliderCOntainer");
+	
+	public SliderPage navigate() {
+		super.navigate("/horizontal_slider");
+		return this;
+	}
+	/*
+	public SliderPage setSliderMaxValue() {
+		getSlider(sliderContainerLocator).setMaxValue();
+		return this;
+	}
+	
+	public float getSliderValue() {
+		return getSlider(sliderContainerLocator).getValue();
+	}
+	*/
+	/*
 	//@FindBy(id="range")
 	//WebElement sliderFinalValue;
 	//@FindBy(className="sliderContainer")
@@ -52,5 +70,5 @@ public class SliderPage extends SuperPageObject {
 		
 		//return null;
 	}
-
+	*/
 }

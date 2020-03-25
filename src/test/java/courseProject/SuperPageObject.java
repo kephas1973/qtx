@@ -1,37 +1,40 @@
-package hw03062020fri;
+package courseProject;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-//import ui.control.extensions.CheckboxGroup;
 
 
 public class SuperPageObject {
 	protected WebDriver driver;
-    protected String baseUrl;
+    protected String baseUrl = "http://automationpractice.com/index.php";
       
     //Constructor
-    public SuperPageObject(WebDriver driver, String baseUrl) {
+    public SuperPageObject(WebDriver driver) {
         this.driver = driver;
-        this.baseUrl = baseUrl;
         
         PageFactory.initElements(driver, this);
     }
 
 	protected void navigate(String url) {
 		String pageUrl = new String(baseUrl + url);
-		//driver.navigate().to(pageUrl);
-		driver.get(pageUrl);
+		driver.navigate().to(pageUrl);		
+	}
+	
+	protected void navigate() {
+		//driver.navigate().to(baseUrl);
+		driver.get(baseUrl);
 	}
 	
 	protected Select getSelect(WebElement element) {
 		return new Select(element);
 	}
-	
+
+/*
 	protected CheckboxGroup getCheckboxGroup(By locator) {
 		return new CheckboxGroup(driver.findElement(locator));
 	}
+*/
 }

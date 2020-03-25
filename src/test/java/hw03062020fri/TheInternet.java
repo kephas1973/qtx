@@ -1,6 +1,7 @@
 package hw03062020fri;
 
 import org.testng.Assert;
+//import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 /*
 import test.TestSuperClass;
@@ -10,18 +11,84 @@ import test.pages.HomePage;
 import test.pages.LoginPage;
 */
 
+import courseProject.BestSellersView;
+
 public class TheInternet extends TestSuperClass {
+/*	
+	//As a 'Customer'
+	//I want to 'Show Best Sellers on the home page'
+	//So that I can view it
+	@Test
+	public void canViewBestSellersPage() {
+		//arrange
+		//String expectedClassActive = "active";
+		String expectedPageTitle = "My Store";
+		
+		//act
+		//String actualClassActive = "";
+		/*String actualClassActive = new BestSellersView(driver, baseUrl)
+				.navigate();
+		*/
+		/*
+		String actualPageTitle = new BestSellersView(driver, baseUrl)
+				.navigate()
+				.GetTitle();
+		
+		//assert
+		//Assert.assertEquals(actualClassActive, expectedClassActive, "Best Sellers View Cannot Be Determined!");
+		Assert.assertEquals(actualPageTitle, expectedPageTitle, "Could not navigate to URL");
+	}
+*/	
 	
+	/*
+	//As a user
+	//I want to enter values in the input box
+	//So that I can prove I know how to use data provider
+	@Test(dataProvider="numberData")
+	//arrange
+	
+	//act
+	public void canInputNumbers(int number) {
+		int actualNumberInput = new InputPage(driver, baseUrl)
+				.navigate()
+				.setInputValue(number)
+				.getInputValue();
+	}
+	
+	@DataProvider(name="numberData")
+	public Object[] getNumberData() {
+		return new Object[] {1, 5, 3, 0, 9, 7};
+	}
+	*/
+	/*
+	//As a user
+	//I want to move the slider to the maximum value
+	//So that I can prove I can automate mouse actions
+	public void canMoveSliderToMaxRange() {
+		
+		//arrange
+		float expectedSliderValue = 5f;
+		
+		//act
+		float actualSliderValue = new SliderPage(driver, baseUrl)
+				.navigate()
+				.getSliderMaxValue()
+				.geSliderValue();
+		
+		//assert
+		Assert.assertEquals(actualSliderValue, expectedSliderValue, "The slider values are mismatched!");
+	}
+	*/
+	/*
 	//As a user
 	//I want to move the slider to the max value
 	//So I can prove that I know how to use the Actions builder
 	@Test
 	public void canInspectSliderMaxValue() {
-		//SliderPage sampleTest = new SliderPage(driver, baseUrl);
-		//sampleTest.navigate();
-		
+
 		//arrange
-		String expectedSliderMaxValue = "5";
+		//String expectedSliderMaxValue = "5";
+		Float expectedSliderMaxValue = "5.0f";
 		
 		//act
 		String actualSliderMaxValue = new SliderPage(driver, baseUrl)
@@ -32,6 +99,7 @@ public class TheInternet extends TestSuperClass {
 		//assert
 		Assert.assertEquals(actualSliderMaxValue, expectedSliderMaxValue, "Cannot set slider to maximum value of 5!");
 	}
+	*/
 	/*
 	//As a SDET
 	//I want navigate to the website

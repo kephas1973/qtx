@@ -1,4 +1,4 @@
-package qtx;
+package courseProject;
 
 public class DriverManagerFactory {
 	

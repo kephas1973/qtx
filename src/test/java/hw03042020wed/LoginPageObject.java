@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPageObject extends SuperPageObject {
-	
+
 	protected static String urlLoginAppended;
 	
 	public LoginPageObject(WebDriver driverInstance, String url) {
 		super(driverInstance, url);
 	}
-	
+/*	
 	public LoginPageObject OpenLoginPage() {
 		
 		urlLoginAppended = new String("/login");
@@ -30,5 +30,5 @@ public class LoginPageObject extends SuperPageObject {
 		submitBox.click();
 		return new SecurePageObject(driver, );
 	}
-
+*/
 }

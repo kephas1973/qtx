@@ -10,7 +10,7 @@ public abstract class TestSuperClass {
 
 	@BeforeTest
 	public void beforeTest() {
-		driver = DriverManagerFactory.getManager(DriverType.CHROME).getDriver();
+		driver = DriverManagerFactory.getManager(DriverTypes.CHROME).getDriver();
 		driver.navigate().to(TheInternet_1.URL);
 	}
 

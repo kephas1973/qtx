@@ -1,6 +1,6 @@
 package qtx;
 
-public enum DriverType {
+public enum DriverTypes {
 	
 	CHROME
 
