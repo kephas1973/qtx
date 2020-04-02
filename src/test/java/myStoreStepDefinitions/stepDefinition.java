@@ -1,5 +1,8 @@
 package myStoreStepDefinitions;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -35,11 +38,12 @@ public class stepDefinition extends TestSuperClass {
 		String expectedTotalPrice = new String("$181.61");
 		String actualTotalPrice = new CartContentPageTUQVP(driver).totalPrice();
 		
-		// HOW DO YOU ASSERT IN CUCUMBER?
+		// HOW DO YOU ASSERT IN CUCUMBER? -- done below!
 		if (expectedTotalPrice.equals(actualTotalPrice)) {
 			System.out.println("Total price is indeed $181.61");
 		}
-		//Assert.assertEquals(actualTotalPrice, expectedTotalPrice, "Total prices do not match!");	
+		
+		Assert.assertEquals(actualTotalPrice, expectedTotalPrice, "Total prices do not match!");	
 	}
 
 }
