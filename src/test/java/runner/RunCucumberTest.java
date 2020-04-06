@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src\\test\\java\\Features"  // "src\\test\\java\\Features"
-        ,glue={"src\\test\\java\\myStoreStepDefinitions"}  // "src\\test\\java\\myStoreStepDefinitions"
+        ,glue={"myStoreStepDefinition"}  // "src\\test\\java\\myStoreStepDefinitions"
         )
 
 public class RunCucumberTest {
