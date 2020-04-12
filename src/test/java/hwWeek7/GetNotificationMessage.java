@@ -1,19 +1,16 @@
 package hwWeek7;
 
 import org.openqa.selenium.By;
-//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class GetNotificationMessage extends PageObjectSuperClass {
 	
-	@FindBy(xpath="//*[@id=\"content\"]/div/p/a")
+	@FindBy(how=How.LINK_TEXT, using="Click here")
 	WebElement clickHere;
 	
-	//@FindBy(xpath="/html/body/div[1]/div/div")
-	//WebElement notificationText;
-
 	public GetNotificationMessage(WebDriver driverInstance) {
 		super(driverInstance);
 	}
@@ -29,9 +26,8 @@ public class GetNotificationMessage extends PageObjectSuperClass {
 	}
 
 	public String getMessageText() {
-		WebElement notificationText = driver.findElement(By.xpath("/html/body/div[1]/div/div"));
+		WebElement notificationText = driver.findElement(By.id("flash"));
 		
 		return notificationText.getText();
 	}
-
 }

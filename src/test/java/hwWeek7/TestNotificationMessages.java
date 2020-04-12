@@ -21,8 +21,6 @@ public class TestNotificationMessages extends TestSuperClass {
 				.getMessageText();
 		
 		//assert
-		//System.out.println("expectedSuccessfulMsg:" + expectedSuccessfulMsg + "...");
-		//System.out.println("expectedUnsuccessfulMsg:" + expectedUnsuccessfulMsg + "...");
 		System.out.println("actualMessage:" + actualMessage + "...");
 		
 		if (expectedSuccessfulMsg.equals(actualMessage)) {
