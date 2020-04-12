@@ -1,7 +1,9 @@
 package myStoreStepDefinitions;
 
+import qtx.ChromeDriverManager;
+
 public class DriverManagerFactory {
-	public static DriverManager getManager(DriverType type) {
+	public static ChromeDriverManager getManager(DriverType type) {
 		switch(type) {
 		case CHROME:
 			return new ChromeDriverManager();

@@ -7,14 +7,14 @@ public class TestShadowDom extends TestSuperClass {
 	
 	@Test
 	public void shadowDomText() {
-		
+				
 		//arrange
 		String[] expectedText = new String[] {"Simple template", "Let's have some different text!", "Let's have some different text!", "In a list!"};
 		
 		//act
 		String[] actualText = new GetShadowDomText(driver)
 				.goToPage()
-				.getOutputText();
+				.getPageText();
 		
 		//assert
 		for (int i = 0; i < expectedText.length; i++) {

@@ -1,56 +1,62 @@
 package hwWeek7;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class GetShadowDomText extends PageObjectSuperClass {
-
+	
+	@FindBy(how=How.TAG_NAME, using="my-paragraph")
+	List<WebElement> myShadowParagraphs;
+	
+	@FindBy(how=How.ID, using="my-paragraph")
+	WebElement template;
+	
 	public GetShadowDomText(WebDriver driverInstance) {
 		super(driverInstance);
 	}
-
+	
 	public GetShadowDomText goToPage() {
 		navigate("/shadowdom");
 		return this;
 	}
 
-	public String[] getOutputText() {
+	public String[] getPageText() {
 		
-		String[] expectedText = new String[] {"", "", "", ""};
+		List<String> lineTexts = new ArrayList<String>();
 		
-        WebElement simpleTemplateText = driver.findElement(By.xpath("//*[@id=\"content\"]/h1"));
-        //?WebElement simpleTemplateText = driver.findElement(By.id("content"));
-		//?WebElement shadowSimpleTemplateText = expandRootElement(simpleTemplateText);
-		//?expectedText[0] = shadowSimpleTemplateText.getText();
-        expectedText[0] = simpleTemplateText.getText();
-        System.out.println(expectedText[0]);
+		lineTexts.add(template.getText());		
 		
-		WebElement diffTextStandAloneText = driver.findElement(By.xpath("//*[@id=\"content\"]/my-paragraph[1]/span"));
-		//WebElement diffTextStandAloneText = driver.findElement(By.id("my-paragraph"));
-		WebElement shadowDiffTextStandAloneText = expandRootElement(diffTextStandAloneText);
-		expectedText[1] = shadowDiffTextStandAloneText.getText();
+		for(WebElement myShadowParagraph : myShadowParagraphs) {
+			
+			String text = getTextForShadowDomParagraph(myShadowParagraph);
+			
+			lineTexts.add(text);
+		}
 		
-		//WebElement diffTextInListText = driver.findElement(By.xpath("//*[@id=\"content\"]/my-paragraph[2]/ul/li[1]"));
-		WebElement diffTextInListText = driver.findElement(By.id("my-paragraph"));
-		WebElement shadowDiffTextInListText = expandRootElement(diffTextInListText);
-		expectedText[2] = shadowDiffTextInListText.getText();
-		
-		//WebElement inAListText = driver.findElement(By.xpath("//*[@id=\"content\"]/my-paragraph[2]/ul/li[2]"));
-		WebElement inAListText = driver.findElement(By.id("my-paragraph"));
-		WebElement shadowInAListText = expandRootElement(inAListText);
-		expectedText[3] = shadowInAListText.getText();
-		
-		return expectedText;
+		return (String[]) lineTexts.toArray();
 	}
 
-	//Returns webelement
-	public WebElement expandRootElement(WebElement element) {
-		WebElement ele = (WebElement) ((JavascriptExecutor) driver)
-				.executeScript("return arguments[0].shadowRoot",element);
-		return ele;
+	private String getTextForShadowDomParagraph(WebElement element) {
+
+		WebElement shadowRoot = getShadowRoot(element);
+			
+		return shadowRoot.findElement(By.cssSelector("span[slot='my-text']")).getText();
+	}
+
+	public WebElement getShadowRoot(WebElement element) {
+		
+		WebElement rootElement = 
+				(WebElement)((JavascriptExecutor) driver)
+				.executeScript("return arguments[0].shadowRoot", element);
+		
+		return rootElement;
 	}
 	
 }
