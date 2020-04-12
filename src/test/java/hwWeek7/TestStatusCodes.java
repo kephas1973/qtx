@@ -8,12 +8,12 @@ public class TestStatusCodes extends TestSuperClass {
 	@Test
 	public void returnStatusCode200() {
 		//arrange
-		String expectedStatusCode = new String("200");
+		String expectedStatusCode = "200";
 
 		//act
 		String actualStatusCode = new RequestStatusCode(driver)
 				.goToPage()
-				.click200()
+				.clickStatusCodeLink(expectedStatusCode)
 				.getUrl();
 
 		//assert
@@ -25,12 +25,12 @@ public class TestStatusCodes extends TestSuperClass {
 	@Test
 	public void returnStatusCode301() {
 		//arrange
-		String expectedStatusCode = new String("301");
+		String expectedStatusCode = "301";
 
 		//act
 		String actualStatusCode = new RequestStatusCode(driver)
 				.goToPage()
-				.click301()
+				.clickStatusCodeLink(expectedStatusCode)
 				.getUrl();
 
 		//assert
@@ -42,12 +42,12 @@ public class TestStatusCodes extends TestSuperClass {
 	@Test
 	public void returnStatusCode404() {
 		//arrange
-		String expectedStatusCode = new String("404");
+		String expectedStatusCode = "404";
 
 		//act
 		String actualStatusCode = new RequestStatusCode(driver)
 				.goToPage()
-				.click404()
+				.clickStatusCodeLink(expectedStatusCode)
 				.getUrl();
 
 		//assert
@@ -59,12 +59,12 @@ public class TestStatusCodes extends TestSuperClass {
 	@Test
 	public void returnStatusCode500() {
 		//arrange
-		String expectedStatusCode = new String("500");
+		String expectedStatusCode = "500";
 
 		//act
 		String actualStatusCode = new RequestStatusCode(driver)
 				.goToPage()
-				.click500()
+				.clickStatusCodeLink(expectedStatusCode)
 				.getUrl();
 
 		//assert

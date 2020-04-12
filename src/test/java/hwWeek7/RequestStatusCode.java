@@ -1,8 +1,8 @@
 package hwWeek7;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class RequestStatusCode extends PageObjectSuperClass {
 
@@ -15,20 +15,14 @@ public class RequestStatusCode extends PageObjectSuperClass {
 		return this;
 	}
 
-	@FindBy(xpath="/html/body/div[2]/div/div/ul/li[1]/a") // full xpath
-	WebElement statusCode200;
-	@FindBy(xpath="/html/body/div[2]/div/div/ul/li[2]/a") // full xpath
-	WebElement statusCode301;
-	@FindBy(xpath="/html/body/div[2]/div/div/ul/li[3]/a") // full xpath
-	WebElement statusCode404;
-	@FindBy(xpath="/html/body/div[2]/div/div/ul/li[4]/a") // full xpath
-	WebElement statusCode500;
-	
-	public RequestStatusCode click200() {
-		statusCode200.click();
+	// clicking the link actually returns a new page (ex: http://the-internet.herokuapp.com/status_codes/200)
+	// you should create a new page object for each page then return that page.
+	//getUrl() should be moved to the new page.
+	public RequestStatusCode clickStatusCodeLink(String statusCode) {
+		getStatusCodeElement(statusCode).click();
 		return this;
 	}
-
+	
 	public String getUrl() {
 		String url = driver.getCurrentUrl();
 		System.out.println("url = " + url);
@@ -36,22 +30,9 @@ public class RequestStatusCode extends PageObjectSuperClass {
 		
 		return expStatusCode;
 	}
-
-	public RequestStatusCode click301() {
-		statusCode301.click();
-		return this;
-	}
-
-	public RequestStatusCode click404() {
-		statusCode404.click();
-		return this;
-	}
-
-	public RequestStatusCode click500() {
-		statusCode500.click();
-		return this;
-	}
-
 	
-
+	private WebElement getStatusCodeElement(String statusCode) {
+		String xpathExpression = "//div[@id='content']//ul/li/a[text()='" + statusCode + "']";
+		return driver.findElement(By.xpath(xpathExpression));
+	}
 }
