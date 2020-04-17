@@ -1,34 +1,21 @@
 package hwWeek7A;
-
-import java.util.concurrent.TimeUnit;
-
+//
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
-//import framework.DriverManager;
-//import framework.DriverManagerFactory;
-//import framework.DriverTypes;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class TestSuperClass {
-	protected WebDriver driver;
-	protected String baseUrl;
-	protected DriverManager driverManager;
 	
-	@BeforeMethod
-	public void beforeTest() throws Exception {
-		this.baseUrl = "https://demoqa.com/automation-practice-form";
-		driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);	
-		driver = driverManager.getDriver();
-		
-		long time = 10;
-		TimeUnit unit = TimeUnit.SECONDS;
-		driver.manage().timeouts().implicitlyWait(time , unit );
-		driver.manage().timeouts().pageLoadTimeout(time, unit);
+	protected WebDriver driver;
+	
+	@BeforeTest
+	public void beforeTest() {
+		driver = DriverManagerFactory.getManager(DriverType.CHROME).getDriver();
+	}
+	
+	@AfterTest
+	public void afterTest() {
+		//driver.quit();
 	}
 
-	@AfterMethod
-	public void afterTest() {
-		//driverManager.quitDriver();
-	}
 }

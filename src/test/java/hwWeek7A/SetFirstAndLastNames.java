@@ -1,38 +1,38 @@
 package hwWeek7A;
-
+//
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SetFirstAndLastNames extends SuperPageObject {
+public class SetFirstAndLastNames extends PageObjectSuperClass {
 	
-	@FindBy(xpath="//*[@id=\"content\"]/div[2]/div/form/fieldset/div[8]/input")
+	@FindBy(name="firstname")
 	WebElement firstNameField;
 	
-	@FindBy(xpath="//*[@id=\"lastname\"]")
+	@FindBy(id="lastname")
 	WebElement lastNameField;
 	
-	String firstNameStr = new String("Robert");
-	String lastNameStr = new String("Rose");
-
-	public SetFirstAndLastNames(WebDriver driver, String baseUrl) {
-		super(driver, baseUrl);
-	}
-	
-	public SetFirstAndLastNames navigate() {
-		super.navigate("");
-		
-		return this;
+	public SetFirstAndLastNames(WebDriver driverInstance) {
+		super(driverInstance);
 	}
 
-	public SetFirstAndLastNames fillFirstName() {
+	public SetFirstAndLastNames fillFirstName(String firstNameStr) {
 		firstNameField.sendKeys(firstNameStr);
 		return this;
 	}
 
-	public SetFirstAndLastNames fillLastName() {
+	public SetFirstAndLastNames fillLastName(String lastNameStr) {
 		lastNameField.sendKeys(lastNameStr);
 		return this;
+	}
+
+	public SetFirstAndLastNames goToPage() {
+		navigate("automation-practice-form/");
+		return this;
+	}
+
+	public String getUrl() {
+		return driver.getCurrentUrl();
 	}
 
 }
