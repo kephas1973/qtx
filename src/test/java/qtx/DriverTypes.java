@@ -2,6 +2,8 @@ package qtx;
 
 public enum DriverTypes {
 	
-	CHROME
+	CHROME,
+	FIREFOX,
+	EDGE
 
 }

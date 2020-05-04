@@ -6,7 +6,7 @@ package qtx;
 import org.openqa.selenium.support.ui.Select;
 
 import org.openqa.selenium.By;
-
+//import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
@@ -19,8 +19,17 @@ public class TheInternet_1 extends TestSuperClass {
 	//public static String URL = new String ("http://the-internet.herokuapp.com/dropdown");
 	protected static final String URL = new String ("http://the-internet.herokuapp.com/dropdown");
 
+/*	@BeforeTest
+	public void beforeTest() {
+		System.setProperty("webdriver.chrome.driver", "c:\\\\chromedriver.exe");
+		driver = new ChromeDriver();
+		String url = "http://the-internet.herokuapp.com/login";
+		driver.navigate().to(url);
+	}*/
+
 	@Test
 	public void canSelectDropdownListItem() {
+		
 		// arrange
 		String expectedSelection = new String("Option 2");
 

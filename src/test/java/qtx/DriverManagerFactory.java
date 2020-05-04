@@ -7,8 +7,12 @@ public class DriverManagerFactory {
 		switch(type) {
 		case CHROME:
 			return new ChromeDriverManager();
-			default:
-				System.out.println(type + " is not a supportes driver!");
+		case FIREFOX:
+			return new FirefoxDriverManager();
+		case EDGE:
+			return new EdgeDriverManager();
+		default:
+			System.out.println(type + " is not a supportes driver!");
 		}
 		return null;
 	}
